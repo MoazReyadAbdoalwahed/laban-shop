@@ -38,6 +38,28 @@ cloudinaryConfig();
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log('✅ Connected to MongoDB Atlas')
+        app.get('/delete-data', (req, res) => {
+            res.send(`
+    <h1>Data Deletion Instructions</h1>
+    <p>To delete your data, contact us at: abdoalwahedmoaz@gmail.com</p>
+  `);
+        });
+
+        app.get('/privacy-policy', (req, res) => {
+            res.send(`
+    <h1>Privacy Policy</h1>
+    <p>We collect basic profile information for login purposes only.</p>
+    <p>Contact: abdoalwahedmoaz@gmail.com</p>
+  `);
+
+        });
+        app.get('/terms-of-service', (req, res) => {
+            res.send(`
+    <h1>Terms of Service</h1>
+    <p>By using our service, you agree to our terms and conditions.</p>
+    <p>Contact: abdoalwahedmoaz@gmail.com</p>
+    `);
+        });
 
         app.get('/', (req, res) => res.send("API is working!"))
         app.use('/api/auth', authRoute)

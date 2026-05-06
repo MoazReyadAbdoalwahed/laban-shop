@@ -11,7 +11,7 @@ function Mainlayout() {
     return (
         <div className="relative">
             {isHome && <Banner />}
-            <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+            <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pt-[120px]'>
                 <Header />
                 <Outlet />
             </div>
@@ -31,7 +31,7 @@ function Mainlayout() {
             >
                 <FaWhatsapp size={28} />
             </a>
-        </div>
+        </div >
     )
 }
 

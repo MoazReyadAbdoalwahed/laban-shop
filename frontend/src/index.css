@@ -66,6 +66,17 @@ body {
     animation: marquee-rtl 20s linear infinite;
 }
 
+/* Prevent horizontal overflow (X-axis scrollbar) on mobile */
+html,
+body {
+    overflow-x: hidden;
+}
+
+#root {
+    max-width: 100%;
+    overflow-x: clip;
+}
+
 /* Respect user's motion preferences */
 @media (prefers-reduced-motion: reduce) {
 
