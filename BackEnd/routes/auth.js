@@ -21,7 +21,7 @@ router.get('/google/callback',
 )
 
 // Facebook
-router.get('/facebook', passport.authenticate('facebook', { scope: ['email'] }))
+router.get('/facebook', passport.authenticate('facebook', { scope: ['public_profile'] }))
 
 router.get('/facebook/callback',
     passport.authenticate('facebook', { session: false, failureRedirect: `${STORE_URL}/login` }),
