@@ -33,7 +33,7 @@ passport.use(new FacebookStrategy.Strategy({
     clientID: process.env.FACEBOOK_APP_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,
     callbackURL: `${process.env.SERVER_URL}/api/auth/facebook/callback`,
-    profileFields: ['id', 'displayName', 'email', 'picture.type(large)']
+    profileFields: ['id', 'displayName', 'picture.type(large)']
 }, async (accessToken, refreshToken, profile, done) => {
     try {
         let user = await User.findOne({ facebookId: profile.id });
@@ -42,7 +42,7 @@ passport.use(new FacebookStrategy.Strategy({
             user = await User.create({
                 facebookId: profile.id,
                 name: profile.displayName,
-                email: profile.emails?.[0]?.value,
+                email: `fb_${profile.id}@facebook.com`,  // fallback
                 profilePicture: profile.photos?.[0]?.value,
             });
         }
